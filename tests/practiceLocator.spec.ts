@@ -1,5 +1,7 @@
 import {test, expect} from '@playwright/test';
 
+//npx playwright test practiceLocator.spec.ts
+
 test('Practice Locator Strategies - xpath', async ({page}) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('//*[@id="user-name"]').fill('standard_user');
