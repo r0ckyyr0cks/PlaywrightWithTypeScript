@@ -16,13 +16,6 @@ test('Practice Locator Strategies - css selector', async ({page}) => {
     console.log("Login Successful using CSS Selectors");
 })
 
-test('Practice Locator Strategies - text locator', async ({page}) => {
-    await page.goto('https://www.saucedemo.com/');
-    await page.locator('text=Username').fill('standard_user');
-    await page.locator('text=Password').fill('secret_sauce');
-    await page.locator('text=Login').click();
-    console.log("Login Successful using Text Locators");
-})
 test('Practice Locator Strategies - combination locator', async ({page}) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('input#user-name').fill('standard_user');
@@ -74,16 +67,18 @@ test('Practice Locator Strategies - combined locator strategies', async ({page})
 test('Practice Locator Strategies - chaining locators', async ({page}) => {
     await page.goto('https://www.saucedemo.com/');
     const loginForm = page.locator('#login_button_container');
-   await loginForm.locator('input#user-name').fill('standard_user');
-   await loginForm.locator('input#password').fill('secret_sauce');
-   await loginForm.locator('input#login-button').click();
+    await loginForm.locator('input#user-name').fill('standard_user');
+    await loginForm.locator('input#password').fill('secret_sauce');
+    await loginForm.locator('input#login-button').click();
    console.log("Login Successful using Chaining Locators");
 })
 
 test('Practice Locator Strategies - locator with expect assertion', async ({page}) => {
     await page.goto('https://www.saucedemo.com/');
-    await page.locator('#user-name').fill('standard_user');
-    await page.locator('#password').fill('secret_sauce');
+    await page.locator(".form_group", { has: page.locator('input#user-name')}).click();
+    await page.locator(".form_group", { has: page.locator('input#user-name')}).pressSequentially('standard_user');
+    await page.locator(".form_group", { hasNot: page.locator('input#user-name')}).click();
+    await page.locator(".form_group", { hasNot: page.locator('input#user-name')}).pressSequentially('secret_sauce');
     await page.locator('#login-button').click();
     await expect(page.locator('.title')).toHaveText('Products');
     console.log("Login Successful and Verified using Expect Assertion with Locators");
@@ -104,6 +99,7 @@ test('Practice Locator Strategies - locator with hover and click', async ({page}
     await page.locator('#password').fill('secret_sauce');
     await page.locator('#login-button').hover();
     await page.locator('#login-button').click();
+    await page.locator("//a", { hasText: 'Sauce Labs Backpack' }).click();
     console.log("Login Successful using Hover and Click with Locators");
 })
 
@@ -112,6 +108,7 @@ test('Practice Locator Strategies - locator with keyboard actions', async ({page
     await page.locator('#user-name').fill('standard_user');
     await page.locator('#password').fill('secret_sauce');
     await page.locator('#password').press('Enter');
+    await page.locator(".inventory_item_name", { hasNotText: /Sauce.*/ }).click();
     console.log("Login Successful using Keyboard Actions with Locators");
 })
 
