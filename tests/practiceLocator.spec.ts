@@ -124,14 +124,6 @@ test('Practice Locator Strategies - locator with screenshot', async ({page}) => 
     console.log("Login Successful and Screenshot Captured using Locators");
 })
 
-test('Practice Locator Strategies - locator with frame handling', async ({page}) => {
-    await page.goto('https://www.saucedemo.com/');
-    await page.locator('#user-name').fill('standard_user');
-    await page.locator('#password').fill('secret_sauce');
-    await page.locator('#login-button').click();
-    console.log("Login Successful using Frame Handling with Locators");
-})
-
 test('Practice Locator Strategies - locator with multiple elements', async ({page}) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('#user-name').fill('standard_user');
@@ -163,23 +155,6 @@ test('Practice Locator Strategies - locator with conditional checks', async ({pa
     }
 })
 
-test('Practice Locator Strategies - locator with navigation', async ({page}) => {
-    await page.goto('https://www.saucedemo.com/');
-    await page.locator('#user-name').fill('standard_user');
-    await page.locator('#password').fill('secret_sauce');
-    await page.locator('#login-button').click();
-    await page.goto('https://www.saucedemo.com/inventory.html');
-    console.log("Login Successful and Navigated using Locators");
-})
-
-test('Practice Locator Strategies - locator with form submission', async ({page}) => {
-    await page.goto('https://www.saucedemo.com/');
-    await page.locator('#user-name').fill('standard_user');
-    await page.locator('#password').fill('secret_sauce');
-    await page.locator('#login-button').click();
-    console.log("Login Successful using Form Submission with Locators");
-})
-
 test('Practice Locator Strategies - locator with error handling', async ({page}) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('#user-name').fill('standard_user');
@@ -193,23 +168,6 @@ test('Practice Locator Strategies - locator with error handling', async ({page})
     }
 })
 
-test('Practice Locator Strategies - locator with logging', async ({page}) => {
-    await page.goto('https://www.saucedemo.com/');
-    await page.locator('#user-name').fill('standard_user');
-    await page.locator('#password').fill('secret_sauce');
-    await page.locator('#login-button').click();
-    console.log("Login Successful using Logging with Locators");
-})
-
-test('Practice Locator Strategies - locator with debugging', async ({page}) => {
-    await page.goto('https://www.saucedemo.com/');
-    await page.locator('#user-name').fill('standard_user');
-    await page.locator('#password').fill('secret_sauce');
-    await page.locator('#login-button').click();
-    // await page.pause(); // Uncomment this line to enable debugging
-    console.log("Login Successful using Debugging with Locators");
-})
-
 test('Practice Locator Strategies - locator with performance measurement', async ({page}) => {
     const startTime = Date.now();
     await page.goto('https://www.saucedemo.com/');
@@ -218,20 +176,4 @@ test('Practice Locator Strategies - locator with performance measurement', async
    await page.locator('#login-button').click();
    const endTime = Date.now();
    console.log(`Login Successful using Performance Measurement with Locators in ${endTime - startTime} ms`);
-})
-
-test('Practice Locator Strategies - locator with accessibility checks', async ({page}) => {
-    await page.goto('https://www.saucedemo.com/');
-    await page.locator('#user-name').fill('standard_user');
-    await page.locator('#password').fill('secret_sauce');
-    await page.locator('#login-button').click();
-    console.log("Login Successful using Accessibility Checks with Locators");
-})
-
-test('Practice Locator Strategies - locator with internationalization', async ({page}) => {
-    await page.goto('https://www.saucedemo.com/');
-    await page.locator('#user-name').fill('standard_user');
-    await page.locator('#password').fill('secret_sauce');
-    await page.locator('#login-button').click();
-    console.log("Login Successful using Internationalization with Locators");
 })
