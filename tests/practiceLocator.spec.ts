@@ -176,3 +176,11 @@ test('Practice Locator Strategies - locator with performance measurement', async
    const endTime = Date.now();
    console.log(`Login Successful using Performance Measurement with Locators in ${endTime - startTime} ms`);
 })
+
+test('Practice Locator Strategies - Get by Label', async ({page}) => {
+    await page.goto('https://demo.nopcommerce.com/login');
+    await page.getByLabel('Email', {exact: false}).fill('rakesh.mba@outlook.com');
+    await page.getByLabel('Password').fill('your_password');
+    await page.getByRole('button', { name: 'Log in' }).click();
+    console.log("Login Successful and Accessibility Snapshot Captured using Locators");
+})
