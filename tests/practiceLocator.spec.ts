@@ -4,6 +4,7 @@ import {test, expect} from '@playwright/test';
 
 test('Practice Locator Strategies - xpath', async ({page}) => {
     await page.goto('https://www.saucedemo.com/');
+    await expect(page).toHaveTitle('Swag Labs');
     await page.locator('//*[@id="user-name"]').fill('standard_user');
     await page.locator('//*[@id="password"]').fill('secret_sauce');
     await page.locator('//*[@id="login-button"]').click();
@@ -12,6 +13,7 @@ test('Practice Locator Strategies - xpath', async ({page}) => {
 
 test('Practice Locator Strategies - css selector', async ({page}) => {
     await page.goto('https://www.saucedemo.com/');
+    await expect(page).not.toHaveTitle('Bangalore');
     await page.locator('#user-name').fill('standard_user');
     await page.locator('#password').fill('secret_sauce');
     await page.locator('#login-button').click();
@@ -181,6 +183,26 @@ test('Practice Locator Strategies - Get by Label', async ({page}) => {
     await page.goto('https://demo.nopcommerce.com/login');
     await page.getByLabel('Email', {exact: false}).fill('rakesh.mba@outlook.com');
     await page.getByLabel('Password').fill('your_password');
+    await expect(page.getByRole('button', { name: 'Log in' })).toBeEnabled();
     await page.getByRole('button', { name: 'Log in' }).click();
     console.log("Login Successful and Accessibility Snapshot Captured using Locators");
 })
+
+test('Resetting Password for NCS', async ({page}) => {
+    await page.goto('https://www.ncs.gov.in/');
+    await page.getByRole('button', { name: /Ok./ }).click();
+    await page.getByRole('link', { name: 'Login' }).click();
+    const emailInput = page.getByPlaceholder('User Name');
+    await emailInput.fill('R-202484-R-2024719-rakesh.ranjan@rediffmail.com');
+    const passwordInput = page.getByPlaceholder('Password');
+    await passwordInput.fill('Your_password123');
+
+    // await page.goto('https://demo.nopcommerce.com/login');
+    // await page.getByLabel('Email', {exact: false}).fill('
+    // await page.getByLabel('Password').fill('your_password');
+    // await expect(page.getByRole('button', { name: 'Log in' })).toBeEnabled();
+    // await page.getByRole('button', { name: 'Log in' }).click();
+    // console.log("Login Successful and Accessibility Snapshot Captured using Locators");
+})
+
+
