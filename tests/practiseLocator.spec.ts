@@ -12,8 +12,11 @@ test("Practice of locator method", async({ page }) => {
     await page.locator(`.submit-button`).click();
     //using text
     await page.locator("text='Sauce Labs Backpack'").click();
+    //simulating browser back button
     await page.goBack();
+    //using text override case sensitive
     await page.locator("text=SAUCE LABS BACKPACK").click();
+    
 })
 
 test("Practice Locators", async({ page }) => {

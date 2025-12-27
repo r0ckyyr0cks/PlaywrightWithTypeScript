@@ -192,10 +192,10 @@ test('Resetting Password for NCS', async ({ page }) => {
     await page.goto('https://www.ncs.gov.in/');
     await page.getByRole('button', { name: /Ok./ }).click();
     await page.getByRole('link', { name: 'Login' }).click();
-    const emailInput = page.getByPlaceholder('User Name');
-    await emailInput.fill('R-202484-R-2024719-rakesh.ranjan@rediffmail.com');
-    const passwordInput = page.getByPlaceholder('Password');
-    await passwordInput.fill('Apple#234313');
+    // const emailInput = page.getByPlaceholder('User Name');
+    await page.fill('#ctl00_PlaceHolderMain_loginDGET_LoginDGET_UserName','R-202484-R-2024719-rakesh.ranjan@rediffmail.com');
+    // const passwordInput = page.getByPlaceholder('Password');
+    await page.fill('#ctl00_PlaceHolderMain_loginDGET_LoginDGET_Password','Apple#234313');
 
     // await page.goto('https://demo.nopcommerce.com/login');
     // await page.getByLabel('Email', {exact: false}).fill('
@@ -203,26 +203,4 @@ test('Resetting Password for NCS', async ({ page }) => {
     // await expect(page.getByRole('button', { name: 'Log in' })).toBeEnabled();
     // await page.getByRole('button', { name: 'Log in' }).click();
     // console.log("Login Successful and Accessibility Snapshot Captured using Locators");
-})
-
-test("Practice of locator method", async({page}) => {
-    await page.goto("https://saucedemo.com");
-    //using xpath
-    await page.locator("//*[@id='user-name']").fill("error_user");
-    //using placeholder
-    await page.getByPlaceholder("Password").fill("secret_sauce");
-    //using css locator
-    await page.locator(`.submit-button`).click();
-    //using text
-    await page.locator("text='Sauce Labs Backpack'").click();
-})
-
-test("Practice Locators", async({ page }) => {
-    await page.goto("https://testautomationpractice.blogspot.com/");
-    //using css
-    await page.fill('#name','Neha');
-    //using css
-    await page.locator('#email').fill('rakesh.entrust@gmail.com');
-    //using css
-    await page.locator('input#phone').fill('8130609725');
 })

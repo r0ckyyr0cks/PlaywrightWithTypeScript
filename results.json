@@ -81,13 +81,13 @@
   },
   "suites": [
     {
-      "title": "practiseLocator.spec.ts",
-      "file": "practiseLocator.spec.ts",
+      "title": "practiceLocator.spec.ts",
+      "file": "practiceLocator.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Practice of locator method",
+          "title": "Resetting Password for NCS",
           "ok": true,
           "tags": [],
           "tests": [
@@ -99,15 +99,15 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 24,
+                  "workerIndex": 29,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 9053,
+                  "duration": 10824,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-12-27T06:12:07.227Z",
+                  "startTime": "2025-12-27T10:51:34.376Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -115,9 +115,9 @@
               "status": "expected"
             }
           ],
-          "id": "34fb58d00a64b32699d5-2cf968e2107b9db52fc5",
-          "file": "practiseLocator.spec.ts",
-          "line": 5,
+          "id": "544dd42c8d26d6f52d6f-5c8ae13c1b7950b33bdb",
+          "file": "practiceLocator.spec.ts",
+          "line": 191,
           "column": 5
         }
       ]
@@ -125,8 +125,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-27T06:12:05.174Z",
-    "duration": 11676.320000000298,
+    "startTime": "2025-12-27T10:51:32.345Z",
+    "duration": 13468.14999999851,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
