@@ -1,8 +1,8 @@
-import {test, expect} from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 //npx playwright test practiceLocator.spec.ts
 
-test('Practice Locator Strategies - xpath', async ({page}) => {
+test('Practice Locator Strategies - xpath', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await expect(page).toHaveTitle('Swag Labs');
     await page.locator('//*[@id="user-name"]').fill('standard_user');
@@ -11,7 +11,7 @@ test('Practice Locator Strategies - xpath', async ({page}) => {
     console.log("Login Successful using Xpath Locators");
 })
 
-test('Practice Locator Strategies - css selector', async ({page}) => {
+test('Practice Locator Strategies - css selector', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await expect(page).not.toHaveTitle('Bangalore');
     await page.locator('#user-name').fill('standard_user');
@@ -20,7 +20,7 @@ test('Practice Locator Strategies - css selector', async ({page}) => {
     console.log("Login Successful using CSS Selectors");
 })
 
-test('Practice Locator Strategies - combination locator', async ({page}) => {
+test('Practice Locator Strategies - combination locator', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('input#user-name').fill('standard_user');
     await page.locator('input#password').fill('secret_sauce');
@@ -28,15 +28,15 @@ test('Practice Locator Strategies - combination locator', async ({page}) => {
     console.log("Login Successful using Combination Locators");
 })
 
-test('Practice Locator Strategies - role locator', async ({page}) => {
+test('Practice Locator Strategies - role locator', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
-    await page.getByRole('textbox', {name: 'Username'}).fill('standard_user');
-    await page.getByRole('textbox', {name: 'Password'}).fill('secret_sauce');
-    await page.getByRole('button', {name: 'Login'}).click();
+    await page.getByRole('textbox', { name: 'Username' }).fill('standard_user');
+    await page.getByRole('textbox', { name: 'Password' }).fill('secret_sauce');
+    await page.getByRole('button', { name: 'Login' }).click();
     console.log("Login Successful using Role Locators");
 })
 
-test('Practice Locator Strategies - data-test attribute locator', async ({page}) => {
+test('Practice Locator Strategies - data-test attribute locator', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('[data-test="username"]').fill('standard_user');
     await page.locator('[data-test="password"]').fill('secret_sauce');
@@ -44,15 +44,15 @@ test('Practice Locator Strategies - data-test attribute locator', async ({page})
     console.log("Login Successful using Data-Test Attribute Locators");
 })
 
-test('Practice Locator Strategies - placeholder locator', async ({page}) => {
+test('Practice Locator Strategies - placeholder locator', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.getByPlaceholder('Username').fill('standard_user');
     await page.getByPlaceholder('Password').fill('secret_sauce');
-    await page.getByRole('button', {name: 'Login'}).click();
+    await page.getByRole('button', { name: 'Login' }).click();
     console.log("Login Successful using Placeholder Locators");
 })
 
-test('Practice Locator Strategies - nth locator', async ({page}) => {
+test('Practice Locator Strategies - nth locator', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('input').nth(0).fill('standard_user');
     await page.locator('input').nth(1).fill('secret_sauce');
@@ -60,7 +60,7 @@ test('Practice Locator Strategies - nth locator', async ({page}) => {
     console.log("Login Successful using Nth Locators");
 })
 
-test('Practice Locator Strategies - combined locator strategies', async ({page}) => {
+test('Practice Locator Strategies - combined locator strategies', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('input#user-name[data-test="username"]').fill('standard_user');
     await page.locator('input#password[data-test="password"]').fill('secret_sauce');
@@ -68,27 +68,27 @@ test('Practice Locator Strategies - combined locator strategies', async ({page})
     console.log("Login Successful using Combined Locator Strategies");
 })
 
-test('Practice Locator Strategies - chaining locators', async ({page}) => {
+test('Practice Locator Strategies - chaining locators', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     const loginForm = page.locator('#login_button_container');
     await loginForm.locator('input#user-name').fill('standard_user');
     await loginForm.locator('input#password').fill('secret_sauce');
     await loginForm.locator('input#login-button').click();
-   console.log("Login Successful using Chaining Locators");
+    console.log("Login Successful using Chaining Locators");
 })
 
-test('Practice Locator Strategies - locator with expect assertion', async ({page}) => {
+test('Practice Locator Strategies - locator with expect assertion', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
-    await page.locator(".form_group", { has: page.locator('input#user-name')}).click();
-    await page.locator(".form_group", { has: page.locator('input#user-name')}).pressSequentially('standard_user');
-    await page.locator(".form_group", { hasNot: page.locator('input#user-name')}).click();
-    await page.locator(".form_group", { hasNot: page.locator('input#user-name')}).pressSequentially('secret_sauce');
+    await page.locator(".form_group", { has: page.locator('input#user-name') }).click();
+    await page.locator(".form_group", { has: page.locator('input#user-name') }).pressSequentially('standard_user');
+    await page.locator(".form_group", { hasNot: page.locator('input#user-name') }).click();
+    await page.locator(".form_group", { hasNot: page.locator('input#user-name') }).pressSequentially('secret_sauce');
     await page.locator('#login-button').click();
     await expect(page.locator('.title')).toHaveText('Products');
     console.log("Login Successful and Verified using Expect Assertion with Locators");
 })
 
-test('Practice Locator Strategies - locator with waitFor', async ({page}) => {
+test('Practice Locator Strategies - locator with waitFor', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('#user-name').fill('standard_user');
     await page.locator('#password').fill('secret_sauce');
@@ -97,7 +97,7 @@ test('Practice Locator Strategies - locator with waitFor', async ({page}) => {
     console.log("Login Successful and Verified using waitFor with Locators");
 })
 
-test('Practice Locator Strategies - locator with hover and click', async ({page}) => {
+test('Practice Locator Strategies - locator with hover and click', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('#user-name').fill('standard_user');
     await page.locator('#password').fill('secret_sauce');
@@ -107,7 +107,7 @@ test('Practice Locator Strategies - locator with hover and click', async ({page}
     console.log("Login Successful using Hover and Click with Locators");
 })
 
-test('Practice Locator Strategies - locator with keyboard actions', async ({page}) => {
+test('Practice Locator Strategies - locator with keyboard actions', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('#user-name').fill('standard_user');
     await page.locator('#password').fill('secret_sauce');
@@ -116,16 +116,16 @@ test('Practice Locator Strategies - locator with keyboard actions', async ({page
     console.log("Login Successful using Keyboard Actions with Locators");
 })
 
-test('Practice Locator Strategies - locator with screenshot', async ({page}) => {
+test('Practice Locator Strategies - locator with screenshot', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('#user-name').fill('standard_user');
     await page.locator('#password').fill('secret_sauce');
     await page.locator('#login-button').click();
-    await page.screenshot({path: 'login-success.png'});
+    await page.screenshot({ path: 'login-success.png' });
     console.log("Login Successful and Screenshot Captured using Locators");
 })
 
-test('Practice Locator Strategies - locator with multiple elements', async ({page}) => {
+test('Practice Locator Strategies - locator with multiple elements', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('#user-name').fill('standard_user');
     await page.locator('#password').fill('secret_sauce');
@@ -135,15 +135,15 @@ test('Practice Locator Strategies - locator with multiple elements', async ({pag
     console.log(`Login Successful and found ${itemCount} items using Locators`);
 })
 
-test('Practice Locator Strategies - locator with dynamic elements', async ({page}) => {
+test('Practice Locator Strategies - locator with dynamic elements', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('#user-name').fill('standard_user');
     await page.locator('#password').fill('secret_sauce');
     await page.locator('#login-button').click();
     console.log("Login Successful using Dynamic Elements with Locators");
-}) 
+})
 
-test('Practice Locator Strategies - locator with conditional checks', async ({page}) => {
+test('Practice Locator Strategies - locator with conditional checks', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('#user-name').fill('standard_user');
     await page.locator('#password').fill('secret_sauce');
@@ -156,7 +156,7 @@ test('Practice Locator Strategies - locator with conditional checks', async ({pa
     }
 })
 
-test('Practice Locator Strategies - locator with error handling', async ({page}) => {
+test('Practice Locator Strategies - locator with error handling', async ({ page }) => {
     await page.goto('https://www.saucedemo.com/');
     await page.locator('#user-name').fill('locked_out_user');
     await page.locator('#password').fill('secret_sauce');
@@ -169,33 +169,33 @@ test('Practice Locator Strategies - locator with error handling', async ({page})
     }
 })
 
-test('Practice Locator Strategies - locator with performance measurement', async ({page}) => {
+test('Practice Locator Strategies - locator with performance measurement', async ({ page }) => {
     const startTime = Date.now();
     await page.goto('https://www.saucedemo.com/');
-   await page.locator('#user-name').fill('standard_user');
-   await page.locator('#password').fill('secret_sauce');
-   await page.locator('#login-button').click();
-   const endTime = Date.now();
-   console.log(`Login Successful using Performance Measurement with Locators in ${endTime - startTime} ms`);
+    await page.locator('#user-name').fill('standard_user');
+    await page.locator('#password').fill('secret_sauce');
+    await page.locator('#login-button').click();
+    const endTime = Date.now();
+    console.log(`Login Successful using Performance Measurement with Locators in ${endTime - startTime} ms`);
 })
 
-test('Practice Locator Strategies - Get by Label', async ({page}) => {
+test('Practice Locator Strategies - Get by Label', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/login');
-    await page.getByLabel('Email', {exact: false}).fill('rakesh.mba@outlook.com');
+    await page.getByLabel('Email', { exact: false }).fill('rakesh.mba@outlook.com');
     await page.getByLabel('Password').fill('your_password');
     await expect(page.getByRole('button', { name: 'Log in' })).toBeEnabled();
     await page.getByRole('button', { name: 'Log in' }).click();
     console.log("Login Successful and Accessibility Snapshot Captured using Locators");
 })
 
-test('Resetting Password for NCS', async ({page}) => {
+test('Resetting Password for NCS', async ({ page }) => {
     await page.goto('https://www.ncs.gov.in/');
     await page.getByRole('button', { name: /Ok./ }).click();
     await page.getByRole('link', { name: 'Login' }).click();
     const emailInput = page.getByPlaceholder('User Name');
     await emailInput.fill('R-202484-R-2024719-rakesh.ranjan@rediffmail.com');
     const passwordInput = page.getByPlaceholder('Password');
-    await passwordInput.fill('Your_password123');
+    await passwordInput.fill('Apple#234313');
 
     // await page.goto('https://demo.nopcommerce.com/login');
     // await page.getByLabel('Email', {exact: false}).fill('

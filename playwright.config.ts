@@ -14,7 +14,7 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: false,
+  fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -23,8 +23,8 @@ export default defineConfig({
   workers: process.env.CI ? 1 : 3,
   // workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
-  //reporter: [['html', { open: 'always' }]],
+  // reporter: 'html',
+  reporter: [['html', { open: 'always', outputFolder: 'playwright-report' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -36,7 +36,7 @@ export default defineConfig({
     trace: 'retain-on-failure',
     headless: false,
     launchOptions: {
-      slowMo: 2000,
+      slowMo: 1000,
     },
   },
 
