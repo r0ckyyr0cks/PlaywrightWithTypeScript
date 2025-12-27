@@ -39,7 +39,7 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
-    headless: true,
+    headless: false,
     launchOptions: {
       slowMo: 1000,
     },

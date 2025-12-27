@@ -81,13 +81,13 @@
   },
   "suites": [
     {
-      "title": "firsttest.spec.ts",
-      "file": "firsttest.spec.ts",
+      "title": "practiseLocator.spec.ts",
+      "file": "practiseLocator.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Basic Test",
+          "title": "Practice of locator method",
           "ok": true,
           "tags": [],
           "tests": [
@@ -99,19 +99,15 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 0,
+                  "workerIndex": 24,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4265,
+                  "duration": 9053,
                   "errors": [],
-                  "stdout": [
-                    {
-                      "text": "This is my first test\n"
-                    }
-                  ],
+                  "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-12-27T02:43:24.625Z",
+                  "startTime": "2025-12-27T06:12:07.227Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -119,9 +115,9 @@
               "status": "expected"
             }
           ],
-          "id": "b853c4829af15db4ebfa-35bd124a7f3f4e6c8936",
-          "file": "firsttest.spec.ts",
-          "line": 3,
+          "id": "34fb58d00a64b32699d5-2cf968e2107b9db52fc5",
+          "file": "practiseLocator.spec.ts",
+          "line": 5,
           "column": 5
         }
       ]
@@ -129,8 +125,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-27T02:43:22.347Z",
-    "duration": 6718.531,
+    "startTime": "2025-12-27T06:12:05.174Z",
+    "duration": 11676.320000000298,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
