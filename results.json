@@ -87,8 +87,8 @@
       "line": 0,
       "specs": [
         {
-          "title": "Resetting Password for NCS",
-          "ok": true,
+          "title": "Practice Locator Strategies - getBy method",
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -99,23 +99,64 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 29,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 10824,
-                  "errors": [],
-                  "stdout": [],
+                  "status": "timedOut",
+                  "duration": 30957,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\VSCodeProjects\\PlaywrightWithTypeScript\\tests\\practiceLocator.spec.ts",
+                        "column": 17,
+                        "line": 197
+                      },
+                      "message": "Error: page.waitForSelector: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.cb-lb') to be visible\u001b[22m\n\n\n\u001b[0m \u001b[90m 195 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"New Customer\"\u001b[39m\u001b[33m,\u001b[39m {exact\u001b[33m:\u001b[39m\u001b[36mtrue\u001b[39m})\u001b[33m.\u001b[39mtextContent())\u001b[33m;\u001b[39m\n \u001b[90m 196 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByAltText(\u001b[32m\"nopCommerce demo store\"\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 197 |\u001b[39m     (\u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForSelector(\u001b[32m'.cb-lb'\u001b[39m\u001b[33m,\u001b[39m { state\u001b[33m:\u001b[39m \u001b[32m'visible'\u001b[39m }))\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 198 |\u001b[39m     \u001b[90m// await page.locator(\".cb-lb-t\", { hasText: \"Verify you are human\"}).click();\u001b[39m\n \u001b[90m 199 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByTitle(\u001b[32m'Show products in category Electronics'\u001b[39m)\u001b[33m.\u001b[39mfirst()\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 200 |\u001b[39m })\u001b[0m\n\u001b[2m    at C:\\VSCodeProjects\\PlaywrightWithTypeScript\\tests\\practiceLocator.spec.ts:197:17\u001b[22m"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "New Customer\n"
+                    }
+                  ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-12-27T10:51:34.376Z",
+                  "startTime": "2025-12-28T06:51:36.227Z",
                   "annotations": [],
-                  "attachments": []
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\VSCodeProjects\\PlaywrightWithTypeScript\\test-results\\practiceLocator-Practice-Locator-Strategies---getBy-method-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\VSCodeProjects\\PlaywrightWithTypeScript\\test-results\\practiceLocator-Practice-Locator-Strategies---getBy-method-chromium\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\VSCodeProjects\\PlaywrightWithTypeScript\\test-results\\practiceLocator-Practice-Locator-Strategies---getBy-method-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\VSCodeProjects\\PlaywrightWithTypeScript\\test-results\\practiceLocator-Practice-Locator-Strategies---getBy-method-chromium\\trace.zip"
+                    }
+                  ]
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "544dd42c8d26d6f52d6f-5c8ae13c1b7950b33bdb",
+          "id": "544dd42c8d26d6f52d6f-adc6f495434f5e19da03",
           "file": "practiceLocator.spec.ts",
           "line": 191,
           "column": 5
@@ -125,11 +166,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-27T10:51:32.345Z",
-    "duration": 13468.14999999851,
-    "expected": 1,
+    "startTime": "2025-12-28T06:51:33.373Z",
+    "duration": 34775.351,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

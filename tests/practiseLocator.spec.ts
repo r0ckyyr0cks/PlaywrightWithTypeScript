@@ -21,10 +21,10 @@ test("Practice of locator method", async({ page }) => {
 
 test("Practice Locators", async({ page }) => {
     await page.goto("https://testautomationpractice.blogspot.com/");
-    //using css
+    //locating element using css
     await page.fill('#name','Neha');
-    //using css
+    //locating element using using css
     await page.locator('#email').fill('rakesh.entrust@gmail.com');
-    //using css
+    //locating element using css
     await page.locator('input#phone').fill('8130609725');
 })

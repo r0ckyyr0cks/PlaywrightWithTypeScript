@@ -179,13 +179,24 @@ test('Practice Locator Strategies - locator with performance measurement', async
     console.log(`Login Successful using Performance Measurement with Locators in ${endTime - startTime} ms`);
 })
 
-test('Practice Locator Strategies - Get by Label', async ({ page }) => {
+test('Practice Locator Strategies - getBy Label', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/login');
     await page.getByLabel('Email', { exact: false }).fill('rakesh.mba@outlook.com');
     await page.getByLabel('Password').fill('your_password');
     await expect(page.getByRole('button', { name: 'Log in' })).toBeEnabled();
     await page.getByRole('button', { name: 'Log in' }).click();
     console.log("Login Successful and Accessibility Snapshot Captured using Locators");
+})
+
+test('Practice Locator Strategies - getBy method', async ({ page }) => {
+    await page.goto('https://demo.nopcommerce.com/login');
+    await page.getByLabel('Email:', { exact: true }).fill('rakesh.mba@outlook.com');
+    await page.getByPlaceholder('Search store').fill('Mobile');
+    console.log(await page.getByText("New Customer", {exact:true}).textContent());
+    await page.getByAltText("nopCommerce demo store").click();
+    // (await page.waitForSelector('.cb-lb', { state: 'visible' })).click();
+    // await page.locator(".cb-lb-t", { hasText: "Verify you are human"}).click();
+    await page.getByTitle('Show products in category Electronics').first().click();
 })
 
 test('Resetting Password for NCS', async ({ page }) => {
