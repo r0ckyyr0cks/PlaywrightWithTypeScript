@@ -192,11 +192,20 @@ test('Practice Locator Strategies - getBy method', async ({ page }) => {
     await page.goto('https://demo.nopcommerce.com/login');
     await page.getByLabel('Email:', { exact: true }).fill('rakesh.mba@outlook.com');
     await page.getByPlaceholder('Search store').fill('Mobile');
-    console.log(await page.getByText("New Customer", {exact:true}).textContent());
+    console.log(await page.getByText("New Customer", { exact: true }).textContent());
     await page.getByAltText("nopCommerce demo store").click();
     // (await page.waitForSelector('.cb-lb', { state: 'visible' })).click();
     // await page.locator(".cb-lb-t", { hasText: "Verify you are human"}).click();
     await page.getByTitle('Show products in category Electronics').first().click();
+})
+
+test('Practice Locator Strategies - getByRole method', async ({ page }) => {
+    await page.goto('https://rahulshettyacademy.com/client/#/auth/login');
+    await page.fill('#userEmail', 'rahulshetty@gmail.com');
+    await page.fill('#userPassword', 'Iamking@000');
+    // await page.getByRole('textbox', { name: 'email@example.com' }).fill('rahulshetty@gmail.com');
+    // await page.getByRole('textbox', { name: 'enter your passsword' }).fill('Iamking@000');
+    await page.getByRole('button', { name: 'Login' }).click();
 })
 
 test('Resetting Password for NCS', async ({ page }) => {
@@ -204,9 +213,9 @@ test('Resetting Password for NCS', async ({ page }) => {
     await page.getByRole('button', { name: /Ok./ }).click();
     await page.getByRole('link', { name: 'Login' }).click();
     // const emailInput = page.getByPlaceholder('User Name');
-    await page.fill('#ctl00_PlaceHolderMain_loginDGET_LoginDGET_UserName','R-202484-R-2024719-rakesh.ranjan@rediffmail.com');
+    await page.fill('#ctl00_PlaceHolderMain_loginDGET_LoginDGET_UserName', 'R-202484-R-2024719-rakesh.ranjan@rediffmail.com');
     // const passwordInput = page.getByPlaceholder('Password');
-    await page.fill('#ctl00_PlaceHolderMain_loginDGET_LoginDGET_Password','Apple#234313');
+    await page.fill('#ctl00_PlaceHolderMain_loginDGET_LoginDGET_Password', 'Apple#234313');
 
     // await page.goto('https://demo.nopcommerce.com/login');
     // await page.getByLabel('Email', {exact: false}).fill('
