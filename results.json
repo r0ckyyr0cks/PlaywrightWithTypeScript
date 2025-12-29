@@ -81,13 +81,13 @@
   },
   "suites": [
     {
-      "title": "practiceLocator.spec.ts",
-      "file": "practiceLocator.spec.ts",
+      "title": "assertions.spec.ts",
+      "file": "assertions.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Practice Locator Strategies - getByRole method",
+          "title": "Assertion Practice",
           "ok": true,
           "tags": [],
           "tests": [
@@ -99,15 +99,15 @@
               "projectName": "chromium",
               "results": [
                 {
-                  "workerIndex": 4,
+                  "workerIndex": 5,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 6625,
+                  "duration": 5694,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-12-28T07:36:36.119Z",
+                  "startTime": "2025-12-29T03:25:09.439Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -115,9 +115,9 @@
               "status": "expected"
             }
           ],
-          "id": "544dd42c8d26d6f52d6f-f59d78b103546d5888dc",
-          "file": "practiceLocator.spec.ts",
-          "line": 202,
+          "id": "3a4d406bd209b851ba2a-f07efdb234e96cbc58db",
+          "file": "assertions.spec.ts",
+          "line": 3,
           "column": 5
         }
       ]
@@ -125,8 +125,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-28T07:36:34.082Z",
-    "duration": 9238.76099999994,
+    "startTime": "2025-12-29T03:25:07.539Z",
+    "duration": 8146.461999997497,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
