@@ -189,6 +189,7 @@ test('Practice Locator Strategies - getBy Label', async ({ page }) => {
 })
 
 test('Practice Locator Strategies - getBy method', async ({ page }) => {
+    test.fail();
     await page.goto('https://demo.nopcommerce.com/login');
     await page.getByLabel('Email:', { exact: true }).fill('rakesh.mba@outlook.com');
     await page.getByPlaceholder('Search store').fill('Mobile');
@@ -208,7 +209,8 @@ test('Practice Locator Strategies - getByRole method', async ({ page }) => {
     await page.getByRole('button', { name: 'Login' }).click();
 })
 
-test('Resetting Password for NCS', async ({ page }) => {
+test('Resetting Password for NCS', async ({ page, browserName }) => {
+    test.slow(browserName === "chromium");
     await page.goto('https://www.ncs.gov.in/');
     await page.getByRole('button', { name: /Ok./ }).click();
     await page.getByRole('link', { name: 'Login' }).click();

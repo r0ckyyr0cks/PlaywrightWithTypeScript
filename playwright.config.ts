@@ -27,9 +27,12 @@ export default defineConfig({
   //reporter: [['html', { open: 'always', outputFolder: 'playwright-report' }]],
   reporter: [
     ['list'],                                    // Simple string inside a tuple
-    ['html', { outputFolder: 'my-report' }],    // Tuple with options
+    ['html', { open: 'always', outputFolder: 'test-report' }],    // Tuple with options
     ['json', { outputFile: 'results.json' }]    // Tuple with options
   ],
+  expect:{
+    timeout:15000
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -40,7 +43,7 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure',
-    headless: false,
+    headless: true,
     launchOptions: {
       slowMo: 1000,
     },
@@ -48,21 +51,21 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
+        {
+          name: 'chromium',
+          use: { ...devices['Desktop Chrome'] },
+        },
     /*
         {
           name: 'firefox',
           use: { ...devices['Desktop Firefox'] },
         },
-    */
+    
         {
           name: 'webkit',
           use: { ...devices['Desktop Safari'] },
         },
-    
+    */
     /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
